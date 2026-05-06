@@ -1,3 +1,6 @@
+# Dashboard built on top of IR scripts defined in:
+# ../../1-scripts/zigbee-tuya-ir-module-with-slzb/zigbee-ZS06-and-UFO-R11.md
+# See also: ./README.md for generation instructions.
 title: SLZB Remote
 views:
   - title: Smart Plugs
