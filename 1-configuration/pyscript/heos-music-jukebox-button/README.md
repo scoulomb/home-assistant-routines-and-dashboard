@@ -264,4 +264,6 @@ In our case, since Qobuz is a cloud source, the source player distinction does n
 - If you care about **connectivity/reliability** → set an Ethernet-connected player as leader (Bedroom in my case)
 - If you care about **audio quality** → set a best capable player as leader (HEOS Link plugged to Atoll DAC 100 in my case — hi-res DAC, keeps full quality for itself)
 
+See also: `../../2-dashboards/hifi-dashboard/hifi-dashboard.yaml` (HEOS Grouping section) where HEOS Link is set as leader when present.
+
 <!-- OK CCL 3:30 am 6jan-->

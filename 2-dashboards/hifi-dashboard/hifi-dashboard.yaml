@@ -798,6 +798,8 @@ views:
           - type: heading
             heading_style: title
             heading: HEOS Grouping
+          # HEOS Link is set as leader when present for hi-res audio quality.
+          # See: ../../1-configuration/pyscript/heos-music-jukebox-button/README.md § "HEOS IP vs player vs source"
           - type: grid
             columns: 1
             square: false
@@ -821,10 +823,10 @@ views:
                   action: call-service
                   service: media_player.join
                   target:
-                    entity_id: media_player.denon_home_dressing
+                    entity_id: media_player.heos_link
                   data:
                     group_members:
-                      - media_player.heos_link
+                      - media_player.denon_home_dressing
                       - media_player.denon_home_bathroom
                       - media_player.denon_home_bedroom
               - type: button
@@ -834,11 +836,11 @@ views:
                   action: call-service
                   service: media_player.join
                   target:
-                    entity_id: media_player.denon_home_dressing
+                    entity_id: media_player.heos_link
                   data:
                     group_members:
                       - media_player.denon_avr_x2700h
-                      - media_player.heos_link
+                      - media_player.denon_home_dressing
                       - media_player.denon_home_bathroom
                       - media_player.denon_home_bedroom
               - type: button
