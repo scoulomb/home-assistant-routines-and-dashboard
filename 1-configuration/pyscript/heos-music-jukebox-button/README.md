@@ -247,4 +247,21 @@ The script sends a persistent notification (bell icon in HA) at the start and en
 - The 3s sleep per command is needed for the HEOS telnet interface to respond
 - `telnetlib` is deprecated in Python 3.12+ but still works; a socket-based replacement could be done later
 
+
+## HEOS IP vs player vs source
+
+The `host` IP is the HEOS device we connect to via telnet — it can be any HEOS device on the network (they all expose the same control API). This is distinct from:
+
+- **Group leader player/device** — the player that controls playback for a group. The leader receives and decodes the full hi-res stream (keeping full quality for itself), then re-distributes to other group members which may receive a downsampled version (typically 48kHz/16-bit) depending on their capabilities and network conditions.
+- **Source-owning player** — the player that owns a local input source (e.g. a HEOS Amp with analog/optical inputs). Note on local input sharing:
+  - **HEOS Amp** inputs (optical/AUX) can be streamed to other HEOS devices (Denon Home, HEOS Link, etc.) without the Amp needing to be the group leader.
+  - **AVR** inputs cannot be shared this way — the AVR must be the group leader to distribute its local input to other players.
+  - **Stream quality**: when a local input is redistributed to other players, the stream is typically limited to 48kHz/16-bit regardless of the original source quality.
+
+In our case, since Qobuz is a cloud source, the source player distinction does not apply.
+
+**Group leader choice in our automation:**
+- If you care about **connectivity/reliability** → set an Ethernet-connected player as leader (Bedroom in my case)
+- If you care about **audio quality** → set a best capable player as leader (HEOS Link plugged to Atoll DAC 100 in my case — hi-res DAC, keeps full quality for itself)
+
 <!-- OK CCL 3:30 am 6jan-->
