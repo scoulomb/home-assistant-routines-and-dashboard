@@ -1,0 +1,1 @@
+Content originally in https://github.com/scoulomb/home-assistant/tree/main/2025-new-gen-setup/dashboards, moved to this external repo.
