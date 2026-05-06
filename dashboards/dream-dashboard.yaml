@@ -1,0 +1,889 @@
+title: Dream Home
+views:
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 1: GLOBAL — Overview & All-at-once controls
+  # ═══════════════════════════════════════════════════════════════
+  - path: global
+    title: Global
+    icon: mdi:home
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Quick Actions"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.go_to_bed
+                name: Go to Bed
+                icon: mdi:bed
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  target:
+                    entity_id: scene.go_to_bed
+              - type: button
+                entity: scene.leave_home
+                name: Leave Home
+                icon: mdi:door-open
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  target:
+                    entity_id: scene.leave_home
+              - type: button
+                entity: scene.turn_on_ac_living
+                name: AC Living
+                icon: mdi:air-conditioner
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  target:
+                    entity_id: scene.turn_on_ac_living
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## All Lights"
+          - type: entities
+            entities:
+              - entity: light.living_room
+                name: Living Room
+              - entity: light.bedroom
+                name: Bedroom
+              - entity: light.bathroom
+                name: Bathroom
+              - entity: light.entrance
+                name: Entrance
+              - entity: light.library
+                name: Library
+              - entity: light.dressing
+                name: Dressing
+              - entity: light.balcony
+                name: Balcony
+              - entity: light.closet
+                name: Closet
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Shutters"
+          - type: entities
+            entities:
+              - entity: cover.salon_module_shutter
+                name: Living Room Shutter
+              - entity: cover.sunilus_io
+                name: Bedroom Sunilus
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: button.salon_module_shutter_my_position
+                name: Living — My Position
+                icon: mdi:window-shutter
+                show_name: true
+              - type: button
+                entity: button.sunilus_io_my_position
+                name: Bedroom — My Position
+                icon: mdi:window-shutter
+                show_name: true
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Energy"
+          - type: energy-distribution
+            link_dashboard: true
+          - type: entities
+            entities:
+              - entity: sensor.energy_monitoring_sensor_electric_power_consumption
+                name: Current Power
+              - entity: sensor.energy_monitoring_sensor_electric_energy_consumption
+                name: Total Energy
+
+      - type: weather-forecast
+        entity: weather.forecast_home
+        show_forecast: true
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 2: LIVING ROOM
+  # ═══════════════════════════════════════════════════════════════
+  - path: living-room
+    title: Living Room
+    icon: mdi:sofa
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Ceiling Lights"
+          - type: grid
+            columns: 4
+            square: false
+            cards:
+              - type: light
+                entity: light.living_1
+                name: "1"
+              - type: light
+                entity: light.living_2
+                name: "2"
+              - type: light
+                entity: light.living_3
+                name: "3"
+              - type: light
+                entity: light.living_4
+                name: "4"
+              - type: light
+                entity: light.living_5
+                name: "5"
+              - type: light
+                entity: light.living_6
+                name: "6"
+              - type: light
+                entity: light.living_7
+                name: "7"
+              - type: light
+                entity: light.living_8
+                name: "8"
+
+      - type: light
+        entity: light.living_room
+        name: All Living Room Lights
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Shutter"
+          - type: entities
+            entities:
+              - entity: cover.salon_module_shutter
+                name: Shutter
+              - entity: button.salon_module_shutter_my_position
+                name: My Position
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Scenes"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.living_room_bright
+                name: Bright
+                icon: mdi:brightness-7
+              - type: button
+                entity: scene.living_room_concentration
+                name: Concentrate
+                icon: mdi:head-lightbulb
+              - type: button
+                entity: scene.living_room_lecture
+                name: Lecture
+                icon: mdi:book-open-variant
+              - type: button
+                entity: scene.living_room_detente
+                name: Détente
+                icon: mdi:spa
+              - type: button
+                entity: scene.living_room_lumiere_naturelle
+                name: Natural
+                icon: mdi:white-balance-sunny
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.living_room_dimmed
+                name: Dimmed
+                icon: mdi:brightness-4
+              - type: button
+                entity: scene.living_room_repos
+                name: Repos
+                icon: mdi:sleep
+              - type: button
+                entity: scene.living_room_stimulation
+                name: Stimulation
+                icon: mdi:lightning-bolt
+              - type: button
+                entity: scene.living_room_veilleuse
+                name: Veilleuse
+                icon: mdi:lightbulb-night
+              - type: button
+                entity: scene.living_room_rainbow_scene
+                name: Rainbow
+                icon: mdi:looks
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 3: BEDROOM
+  # ═══════════════════════════════════════════════════════════════
+  - path: bedroom
+    title: Bedroom
+    icon: mdi:bed
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Ceiling Lights"
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: light
+                entity: light.bedroom_1
+                name: "1"
+              - type: light
+                entity: light.bedroom_2
+                name: "2"
+              - type: light
+                entity: light.bedroom_3
+                name: "3"
+
+      - type: light
+        entity: light.bedroom
+        name: All Bedroom Lights
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Accent Lights"
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: light
+                entity: light.bedroom_bedside_left
+                name: Bedside Left
+              - type: light
+                entity: light.bedroom_bedside_right
+                name: Bedside Right
+              - type: light
+                entity: light.bedroom_bloom
+                name: Bloom
+              - type: light
+                entity: light.bedroom_lightstrip
+                name: Lightstrip
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Sunilus Shutter"
+          - type: entities
+            entities:
+              - entity: cover.sunilus_io
+                name: Sunilus
+              - entity: button.sunilus_io_my_position
+                name: My Position
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Scenes"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.bedroom_bright
+                name: Bright
+                icon: mdi:brightness-7
+              - type: button
+                entity: scene.bedroom_concentrate
+                name: Concentrate
+                icon: mdi:head-lightbulb
+              - type: button
+                entity: scene.bedroom_read
+                name: Read
+                icon: mdi:book-open-variant
+              - type: button
+                entity: scene.bedroom_natural_light
+                name: Natural
+                icon: mdi:white-balance-sunny
+              - type: button
+                entity: scene.bedroom_energize
+                name: Energize
+                icon: mdi:flash
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.bedroom_relax
+                name: Relax
+                icon: mdi:spa
+              - type: button
+                entity: scene.bedroom_dimmed
+                name: Dimmed
+                icon: mdi:brightness-4
+              - type: button
+                entity: scene.bedroom_rest
+                name: Rest
+                icon: mdi:sleep
+              - type: button
+                entity: scene.bedroom_nightlight
+                name: Nightlight
+                icon: mdi:lightbulb-night
+              - type: button
+                entity: scene.bedroom_energize
+                name: ""
+                show_icon: false
+                show_name: false
+                tap_action:
+                  action: none
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 4: BATHROOM
+  # ═══════════════════════════════════════════════════════════════
+  - path: bathroom
+    title: Bathroom
+    icon: mdi:shower-head
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Lights"
+          - type: grid
+            columns: 4
+            square: false
+            cards:
+              - type: light
+                entity: light.bathroom_1
+                name: "1"
+              - type: light
+                entity: light.bathroom_2
+                name: "2"
+              - type: light
+                entity: light.bathroom_3
+                name: "3"
+              - type: light
+                entity: light.bathroom_4
+                name: "4"
+
+      - type: light
+        entity: light.bathroom
+        name: All Bathroom Lights
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Scenes"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.bathroom_bright
+                name: Bright
+                icon: mdi:brightness-7
+              - type: button
+                entity: scene.bathroom_concentrate
+                name: Concentrate
+                icon: mdi:head-lightbulb
+              - type: button
+                entity: scene.bathroom_read
+                name: Read
+                icon: mdi:book-open-variant
+              - type: button
+                entity: scene.bathroom_energize
+                name: Energize
+                icon: mdi:flash
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.bathroom_relax
+                name: Relax
+                icon: mdi:spa
+              - type: button
+                entity: scene.bathroom_dimmed
+                name: Dimmed
+                icon: mdi:brightness-4
+              - type: button
+                entity: scene.bathroom_nightlight
+                name: Nightlight
+                icon: mdi:lightbulb-night
+              - type: button
+                entity: scene.bathroom_energize
+                name: ""
+                show_icon: false
+                show_name: false
+                tap_action:
+                  action: none
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 5: ENTRANCE & CLOSET
+  # ═══════════════════════════════════════════════════════════════
+  - path: entrance
+    title: Entrance
+    icon: mdi:door
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Entrance Lights"
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: light
+                entity: light.entrance_1
+                name: "1"
+              - type: light
+                entity: light.entrance_2
+                name: "2"
+              - type: light
+                entity: light.entrance
+                name: All
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Entrance Scenes"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.entrance_bright
+                name: Bright
+                icon: mdi:brightness-7
+              - type: button
+                entity: scene.entrance_concentration
+                name: Concentrate
+                icon: mdi:head-lightbulb
+              - type: button
+                entity: scene.entrance_lecture
+                name: Lecture
+                icon: mdi:book-open-variant
+              - type: button
+                entity: scene.entrance_detente
+                name: Détente
+                icon: mdi:spa
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.entrance_dimmed
+                name: Dimmed
+                icon: mdi:brightness-4
+              - type: button
+                entity: scene.entrance_stimulation
+                name: Stimulation
+                icon: mdi:lightning-bolt
+              - type: button
+                entity: scene.entrance_veilleuse
+                name: Veilleuse
+                icon: mdi:lightbulb-night
+              - type: button
+                entity: scene.entrance_veilleuse
+                name: ""
+                show_icon: false
+                show_name: false
+                tap_action:
+                  action: none
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Closet Lights"
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: light
+                entity: light.closet
+                name: Closet
+              - type: light
+                entity: light.hue_white_lamp_placard_4th_foot
+                name: 4th Shelf
+              - type: light
+                entity: light.hue_white_lamp_placard_5th_floor
+                name: 5th Shelf
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 6: LIBRARY
+  # ═══════════════════════════════════════════════════════════════
+  - path: library
+    title: Library
+    icon: mdi:bookshelf
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Lights"
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: light
+                entity: light.library
+                name: Library
+              - type: light
+                entity: light.living_play_left
+                name: Play Left
+              - type: light
+                entity: light.living_play_right
+                name: Play Right
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Scenes"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.library_bright
+                name: Bright
+                icon: mdi:brightness-7
+              - type: button
+                entity: scene.library_concentrate
+                name: Concentrate
+                icon: mdi:head-lightbulb
+              - type: button
+                entity: scene.library_read
+                name: Read
+                icon: mdi:book-open-variant
+              - type: button
+                entity: scene.library_energize
+                name: Energize
+                icon: mdi:flash
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.library_relax
+                name: Relax
+                icon: mdi:spa
+              - type: button
+                entity: scene.library_dimmed
+                name: Dimmed
+                icon: mdi:brightness-4
+              - type: button
+                entity: scene.library_nightlight
+                name: Nightlight
+                icon: mdi:lightbulb-night
+              - type: button
+                entity: scene.library_nightlight
+                name: ""
+                show_icon: false
+                show_name: false
+                tap_action:
+                  action: none
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 7: DRESSING
+  # ═══════════════════════════════════════════════════════════════
+  - path: dressing
+    title: Dressing
+    icon: mdi:wardrobe
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Lights"
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: light
+                entity: light.dressing
+                name: Dressing
+              - type: light
+                entity: light.dressing_lightstrip
+                name: Lightstrip
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Scenes"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.dressing_dimmed
+                name: Dimmed
+                icon: mdi:brightness-4
+              - type: button
+                entity: scene.dressing_bright
+                name: Bright
+                icon: mdi:brightness-7
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 8: BALCONY & TERRACE
+  # ═══════════════════════════════════════════════════════════════
+  - path: balcony
+    title: Balcony
+    icon: mdi:balcony
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Balcony Lights"
+          - type: grid
+            columns: 2
+            square: false
+            cards:
+              - type: light
+                entity: light.balcony
+                name: Balcony
+              - type: light
+                entity: light.hue_go_1
+                name: Hue Go
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Scenes"
+          - type: horizontal-stack
+            cards:
+              - type: button
+                entity: scene.balcony_dimmed
+                name: Dimmed
+                icon: mdi:brightness-4
+              - type: button
+                entity: scene.balcony_bright
+                name: Bright
+                icon: mdi:brightness-7
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 9: SMART PLUGS
+  # ═══════════════════════════════════════════════════════════════
+  - path: smart-plugs
+    title: Plugs
+    icon: mdi:power-plug
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Charging"
+          - type: entities
+            entities:
+              - entity: light.charging
+                name: Charging Group
+                icon: mdi:battery-charging
+              - entity: light.hue_smart_plug_charging
+                name: Charging Plug
+                icon: mdi:power-plug
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Mosquitoes"
+          - type: entities
+            entities:
+              - entity: light.mosquitoes
+                name: Mosquitoes Group
+                icon: mdi:bug
+              - entity: light.on_off_plug_mosquitoes
+                name: Mosquitoes Plug
+                icon: mdi:power-plug
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## HiFi System"
+          - type: entities
+            entities:
+              - entity: light.hue_smart_plug_hi_fi_bedroom
+                name: HiFi Bedroom
+                icon: mdi:speaker
+              - entity: light.hue_smart_plug_hi_fi_living
+                name: HiFi Living
+                icon: mdi:speaker
+              - entity: light.music_virtual_room
+                name: Music Virtual Room
+                icon: mdi:music
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Turntable"
+          - type: entities
+            entities:
+              - entity: light.hue_smart_plug_phono_preamp
+                name: Phono Preamp
+                icon: mdi:amplifier
+              - entity: light.hue_smart_plug_turntable
+                name: Turntable
+                icon: mdi:record-player
+              - entity: light.turntable_virtual_room
+                name: Turntable Virtual Room
+                icon: mdi:music-circle
+
+  # ═══════════════════════════════════════════════════════════════
+  # TAB 10: SENSORS & CLIMATE
+  # ═══════════════════════════════════════════════════════════════
+  - path: sensors
+    title: Sensors & Climate
+    icon: mdi:thermometer
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Living Room"
+          - type: entities
+            entities:
+              - entity: sensor.netatmo_70_ee_50_90_85_9c_1_temperature
+                name: Temperature (Netatmo)
+                icon: mdi:thermometer
+              - entity: sensor.salon_daikinap84896_temperature
+                name: Temperature (Daikin)
+                icon: mdi:thermometer
+              - entity: sensor.salon_daikinap84896_temperature_2
+                name: Temperature 2 (Daikin)
+                icon: mdi:thermometer
+              - entity: >-
+                  sensor.netatmo_70_ee_50_90_85_9c_1_netatmo_70_ee_50_90_85_9c_3_co2_concentration
+                name: CO₂
+                icon: mdi:molecule-co2
+              - entity: >-
+                  sensor.netatmo_70_ee_50_90_85_9c_1_netatmo_70_ee_50_90_85_9c_4_relative_humidity
+                name: Humidity
+                icon: mdi:water-percent
+              - entity: sensor.motion_sensor_entrance_illuminance
+                name: Illuminance (Entrance sensor)
+                icon: mdi:brightness-6
+              - entity: binary_sensor.motion_sensor_entrance_motion
+                name: Motion (Entrance sensor)
+                icon: mdi:motion-sensor
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Bedroom"
+          - type: entities
+            entities:
+              - entity: sensor.bedroom_temperature_temperature
+                name: Temperature
+                icon: mdi:thermometer
+              - entity: sensor.bedroom_temperature_humidity
+                name: Humidity
+                icon: mdi:water-percent
+              - entity: sensor.chambre_daikinap92824_temperature
+                name: Temperature (Daikin)
+                icon: mdi:thermometer
+              - entity: sensor.chambre_daikinap92824_temperature_2
+                name: Temperature 2 (Daikin)
+                icon: mdi:thermometer
+              - entity: number.bedroom_temperature_comfort_temperature_min
+                name: Comfort Temp Min
+              - entity: number.bedroom_temperature_comfort_temperature_max
+                name: Comfort Temp Max
+              - entity: number.bedroom_temperature_comfort_humidity_min
+                name: Comfort Humidity Min
+              - entity: number.bedroom_temperature_comfort_humidity_max
+                name: Comfort Humidity Max
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Bathroom"
+          - type: entities
+            entities:
+              - entity: sensor.motion_sensor_bathroom_shower_temperature
+                name: Temperature (Shower)
+                icon: mdi:thermometer
+              - entity: sensor.motion_sensor_bathroom_shower_illuminance
+                name: Illuminance (Shower)
+                icon: mdi:brightness-6
+              - entity: binary_sensor.motion_sensor_bathroom_shower_motion
+                name: Motion (Shower)
+                icon: mdi:motion-sensor
+              - entity: sensor.motion_sensor_bathroom_entrance_temperature
+                name: Temperature (Entrance)
+                icon: mdi:thermometer
+              - entity: sensor.motion_sensor_bathroom_entrance_illuminance
+                name: Illuminance (Entrance)
+                icon: mdi:brightness-6
+              - entity: binary_sensor.motion_sensor_bathroom_entrance_motion
+                name: Motion (Entrance)
+                icon: mdi:motion-sensor
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Balcony"
+          - type: entities
+            entities:
+              - entity: sensor.motion_sensor_balcony_temperature
+                name: Temperature
+                icon: mdi:thermometer
+              - entity: sensor.motion_sensor_balcony_illuminance
+                name: Illuminance
+                icon: mdi:brightness-6
+              - entity: binary_sensor.motion_sensor_balcony_motion
+                name: Motion
+                icon: mdi:motion-sensor
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Dressing"
+          - type: entities
+            entities:
+              - entity: sensor.motion_sensor_dressing_temperature
+                name: Temperature
+                icon: mdi:thermometer
+              - entity: sensor.motion_sensor_dressing_illuminance
+                name: Illuminance
+                icon: mdi:brightness-6
+              - entity: binary_sensor.motion_sensor_dressing_motion
+                name: Motion
+                icon: mdi:motion-sensor
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Outdoor & Terrace"
+          - type: entities
+            entities:
+              - entity: sensor.outdoor_temperature
+                name: Outdoor Temperature
+                icon: mdi:thermometer
+              - entity: sensor.outdoor_outdoor_1_relative_humidity
+                name: Outdoor Humidity
+                icon: mdi:water-percent
+              - entity: sensor.terrasse_temperature_temperature
+                name: Terrace Temperature
+                icon: mdi:thermometer
+              - entity: sensor.terrasse_temperature_humidity
+                name: Terrace Humidity
+                icon: mdi:water-percent
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Rain & Solar"
+          - type: entities
+            entities:
+              - entity: binary_sensor.solar_rain_sensor_rain
+                name: Rain
+                icon: mdi:weather-rainy
+              - entity: sensor.solar_rain_sensor_rain_intensity
+                name: Rain Intensity
+                icon: mdi:weather-pouring
+              - entity: sensor.solar_rain_sensor_illuminance
+                name: Solar Illuminance
+                icon: mdi:white-balance-sunny
+              - entity: sensor.solar_rain_sensor_illuminance_average_20min
+                name: Illuminance Avg (20min)
+                icon: mdi:chart-line
+              - entity: sensor.solar_rain_sensor_illuminance_maximum_today
+                name: Illuminance Max Today
+                icon: mdi:chart-bar
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## AC Maintenance"
+          - type: entities
+            entities:
+              - entity: binary_sensor.empty_ac_bucket_contact
+                name: AC Bucket Door
+                icon: mdi:door-open
+              - entity: binary_sensor.empty_ac_bucket_vibration
+                name: AC Bucket Vibration
+                icon: mdi:vibrate
+              - entity: number.empty_ac_bucket_sensitivity
+                name: Sensitivity
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Network"
+          - type: entities
+            entities:
+              - entity: sensor.onhub_download_speed
+                name: Download Speed
+                icon: mdi:download
+              - entity: sensor.onhub_upload_speed
+                name: Upload Speed
+                icon: mdi:upload

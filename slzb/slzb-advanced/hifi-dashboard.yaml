@@ -1,0 +1,991 @@
+title: SLZB Remote
+views:
+  - title: Smart Plugs
+    path: smart-plugs
+    icon: mdi:power-plug
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## HiFi System"
+          - type: entities
+            entities:
+              - entity: light.hue_smart_plug_hi_fi_bedroom
+                name: HiFi Bedroom
+                icon: mdi:speaker
+              - entity: light.hue_smart_plug_hi_fi_living
+                name: HiFi Living
+                icon: mdi:speaker
+              - entity: light.music_virtual_room
+                name: Music Virtual Room
+                icon: mdi:music
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "## Turntable"
+          - type: entities
+            entities:
+              - entity: light.hue_smart_plug_phono_preamp
+                name: Phono Preamp
+                icon: mdi:amplifier
+              - entity: light.hue_smart_plug_turntable
+                name: Turntable
+                icon: mdi:record-player
+              - entity: light.turntable_virtual_room
+                name: Turntable Virtual Room
+                icon: mdi:music-circle
+
+  - title: Bedroom
+    path: bedroom
+    icon: mdi:bed
+    cards:
+      - type: grid
+        title: Atoll Preamp
+        columns: 4
+        square: false
+        cards:
+          - type: button
+            name: Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_turn_on_off_ufo_r11
+          - type: button
+            name: Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_mute_ufo_r11
+          - type: button
+            name: Display
+            icon: mdi:monitor
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_disp_ufo_r11
+          - type: button
+            name: USB
+            icon: mdi:usb
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_usb_ufo_r11
+          - type: button
+            name: Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_less_ufo_r11
+          - type: button
+            name: Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_plus_ufo_r11
+          - type: button
+            name: Sel -
+            icon: mdi:skip-previous
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_less_ufo_r11
+          - type: button
+            name: Sel +
+            icon: mdi:skip-next
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_plus_ufo_r11
+          - type: button
+            name: CD
+            icon: mdi:disc
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_cd_ufo_r11
+          - type: button
+            name: Tuner
+            icon: mdi:radio
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tuner_ufo_r11
+          - type: button
+            name: Tape
+            icon: mdi:cassette
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tape_ufo_r11
+          - type: button
+            name: AUX
+            icon: mdi:audio-input-stereo-minijack
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_aux_ufo_r11
+
+      - type: markdown
+        content: |
+          **PR300 input mapping** (remote label → actual source)
+          CD → MS120 streamer · Tuner → Heos Link streamer · Tape → Tape · AUX → AUX
+
+      - type: vertical-stack
+        cards:
+          - type: markdown
+            content: "### Streamer"
+
+          # Row 1: Power + Volume
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: button
+                name: Power
+                icon: mdi:power
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_turn_on_off_ufo_r11
+              - type: button
+                name: Vol -
+                icon: mdi:volume-minus
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_vol_less_ufo_r11
+              - type: button
+                name: Vol +
+                icon: mdi:volume-plus
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_vol_plus_ufo_r11
+
+          # Row 2: Transport controls
+          - type: grid
+            columns: 4
+            square: false
+            cards:
+              - type: button
+                name: Prev
+                icon: mdi:skip-previous
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_previous_ufo_r11
+              - type: button
+                name: Pause
+                icon: mdi:pause
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_pause_ufo_r11
+              - type: button
+                name: Stop
+                icon: mdi:stop
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_stop_ufo_r11
+              - type: button
+                name: Next
+                icon: mdi:skip-next
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_control_next_ufo_r11
+
+          # D-pad: row with Back | Up | (empty)
+          - type: grid
+            columns: 3
+            square: true
+            cards:
+              - type: button
+                name: Back
+                icon: mdi:arrow-u-left-top
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_back_ufo_r11
+              - type: button
+                name: Up
+                icon: mdi:arrow-up-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_up_ufo_r11
+              - type: button
+                name: ""
+                icon: ""
+                tap_action:
+                  action: none
+
+          # D-pad: Left | OK | Right
+          - type: grid
+            columns: 3
+            square: true
+            cards:
+              - type: button
+                name: Left
+                icon: mdi:arrow-left-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_left_ufo_r11
+              - type: button
+                name: OK
+                icon: mdi:check-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_ok_ufo_r11
+              - type: button
+                name: Right
+                icon: mdi:arrow-right-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_right_ufo_r11
+
+          # D-pad: (empty) | Down | (empty)
+          - type: grid
+            columns: 3
+            square: true
+            cards:
+              - type: button
+                name: ""
+                icon: ""
+                tap_action:
+                  action: none
+              - type: button
+                name: Down
+                icon: mdi:arrow-down-bold
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_navigation_down_ufo_r11
+              - type: button
+                name: ""
+                icon: ""
+                tap_action:
+                  action: none
+
+          # Sources
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - type: button
+                name: COAX1
+                icon: mdi:audio-input-rca
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_coax1_ufo_r11
+              - type: button
+                name: COAX2
+                icon: mdi:audio-input-rca
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_coax2_ufo_r11
+              - type: button
+                name: OPT1
+                icon: mdi:audio-video
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_opt1_ufo_r11
+              - type: button
+                name: OPT2
+                icon: mdi:audio-video
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_opt2_ufo_r11
+              - type: button
+                name: LINE1
+                icon: mdi:audio-input-stereo-minijack
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_line1_ufo_r11
+              - type: button
+                name: LINE2
+                icon: mdi:audio-input-stereo-minijack
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.streamer_source_line2_ufo_r11
+
+      - type: grid
+        title: Atoll DAC
+        columns: 3
+        square: false
+        cards:
+          - type: button
+            name: Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_dac_power_ufo_r11
+          - type: button
+            name: Sel -
+            icon: mdi:skip-previous
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_dac_sel_less_ufo_r11
+          - type: button
+            name: Sel +
+            icon: mdi:skip-next
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_dac_sel_plus_ufo_r11
+
+      - type: grid
+        title: AVR + Optoma
+        columns: 4
+        square: false
+        cards:
+          - type: button
+            name: AVR Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_on_off
+          - type: button
+            name: AVR Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_vol_less
+          - type: button
+            name: AVR Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_vol_plus
+          - type: button
+            name: AVR Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_mute
+          - type: button
+            name: AVR 8K
+            icon: mdi:video-4k-box
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.avr_8k
+          - type: button
+            name: Optoma On
+            icon: mdi:projector
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.optoma_on
+          - type: button
+            name: Optoma Off
+            icon: mdi:projector-off
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.optoma_off
+
+  - title: Living Room
+    path: living-room
+    icon: mdi:sofa
+    cards:
+      - type: grid
+        title: Atoll Preamp
+        columns: 4
+        square: false
+        cards:
+          - type: button
+            name: Power
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_turn_on_off_zs06
+          - type: button
+            name: Mute
+            icon: mdi:volume-mute
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_mute_zs06
+          - type: button
+            name: Display
+            icon: mdi:monitor
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_disp_zs06
+          - type: button
+            name: USB
+            icon: mdi:usb
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_usb_zs06
+          - type: button
+            name: Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_less_zs06
+          - type: button
+            name: Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_vol_plus_zs06
+          - type: button
+            name: Sel -
+            icon: mdi:skip-previous
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_less_zs06
+          - type: button
+            name: Sel +
+            icon: mdi:skip-next
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_sel_plus_zs06
+          - type: button
+            name: CD
+            icon: mdi:disc
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_cd_zs06
+          - type: button
+            name: Tuner
+            icon: mdi:radio
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tuner_zs06
+          - type: button
+            name: Tape
+            icon: mdi:cassette
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_tape_zs06
+          - type: button
+            name: AUX
+            icon: mdi:audio-input-stereo-minijack
+            tap_action:
+              action: call-service
+              service: script.turn_on
+              target:
+                entity_id: script.atoll_preamp_source_aux_zs06
+
+      - type: markdown
+        content: |
+          **HD120 input mapping** (remote label → actual source)
+          CD → Line 1 (CD 6007) · Tuner → Line 2 · Tape → Optical (Heos Link) · AUX → Coaxial (MS120) · USB → USB
+
+  - title: Atoll Signature Web App
+    path: atoll-signature-web-app
+    icon: mdi:web
+    panel: true
+    cards:
+      - type: iframe
+        url: http://192.168.8.140/webclient
+        aspect_ratio: 100%
+
+  - title: Apple TV
+    path: apple-tv
+    icon: mdi:apple
+    cards:
+      - type: media-control
+        entity: media_player.apple_tv_bedroom
+
+      # Power
+      - type: grid
+        columns: 3
+        square: false
+        cards:
+          - type: button
+            name: Turn On
+            icon: mdi:power
+            tap_action:
+              action: call-service
+              service: remote.turn_on
+              target:
+                entity_id: remote.apple_tv_bedroom
+          - type: button
+            name: Home
+            icon: mdi:home
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: home
+          - type: button
+            name: Turn Off
+            icon: mdi:power-off
+            tap_action:
+              action: call-service
+              service: remote.turn_off
+              target:
+                entity_id: remote.apple_tv_bedroom
+
+      # D-pad: Menu | Up | (empty)
+      - type: grid
+        columns: 3
+        square: true
+        cards:
+          - type: button
+            name: Menu
+            icon: mdi:menu
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: menu
+          - type: button
+            name: Up
+            icon: mdi:arrow-up-bold
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: up
+          - type: button
+            name: ""
+            icon: ""
+            tap_action:
+              action: none
+
+      # D-pad: Left | Select | Right
+      - type: grid
+        columns: 3
+        square: true
+        cards:
+          - type: button
+            name: Left
+            icon: mdi:arrow-left-bold
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: left
+          - type: button
+            name: Select
+            icon: mdi:check-bold
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: select
+          - type: button
+            name: Right
+            icon: mdi:arrow-right-bold
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: right
+
+      # D-pad: (empty) | Down | (empty)
+      - type: grid
+        columns: 3
+        square: true
+        cards:
+          - type: button
+            name: ""
+            icon: ""
+            tap_action:
+              action: none
+          - type: button
+            name: Down
+            icon: mdi:arrow-down-bold
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: down
+          - type: button
+            name: ""
+            icon: ""
+            tap_action:
+              action: none
+
+      # Transport controls
+      - type: grid
+        columns: 4
+        square: false
+        cards:
+          - type: button
+            name: Prev
+            icon: mdi:skip-previous
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: previous
+          - type: button
+            name: Play/Pause
+            icon: mdi:play-pause
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: play_pause
+          - type: button
+            name: Stop
+            icon: mdi:stop
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: stop
+          - type: button
+            name: Next
+            icon: mdi:skip-next
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: next
+
+      # Volume
+      - type: grid
+        columns: 2
+        square: false
+        cards:
+          - type: button
+            name: Vol -
+            icon: mdi:volume-minus
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: volume_down
+          - type: button
+            name: Vol +
+            icon: mdi:volume-plus
+            tap_action:
+              action: call-service
+              service: remote.send_command
+              target:
+                entity_id: remote.apple_tv_bedroom
+              data:
+                command: volume_up
+
+  - title: HEOS
+    path: heos
+    icon: mdi:speaker-multiple
+    cards:
+      - type: media-control
+        entity: media_player.denon_home_bathroom
+      - type: media-control
+        entity: media_player.denon_home_bedroom
+      - type: media-control
+        entity: media_player.denon_home_dressing
+      - type: media-control
+        entity: media_player.heos_link
+      - type: media-control
+        entity: media_player.heos_amp
+      - type: media-control
+        entity: media_player.denon_avr_x2700h
+      - type: media-control # This not HEOS integration but AVR integration, but it's convenient to have it here for plug off
+        entity: media_player.denon_avr_x2700h_3
+
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading_style: title
+            heading: HEOS Grouping
+          - type: grid
+            columns: 1
+            square: false
+            cards:
+              - type: button
+                name: Group Bathroom+Bedroom+Dressing
+                icon: mdi:numeric-3-circle
+                tap_action:
+                  action: call-service
+                  service: media_player.join
+                  target:
+                    entity_id: media_player.denon_home_dressing
+                  data:
+                    group_members:
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+              - type: button
+                name: Group Link+Bathroom+Bedroom+Dressing
+                icon: mdi:numeric-4-circle
+                tap_action:
+                  action: call-service
+                  service: media_player.join
+                  target:
+                    entity_id: media_player.denon_home_dressing
+                  data:
+                    group_members:
+                      - media_player.heos_link
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+              - type: button
+                name: Group AVR+Link+Bathroom+Bedroom+Dressing
+                icon: mdi:numeric-5-circle
+                tap_action:
+                  action: call-service
+                  service: media_player.join
+                  target:
+                    entity_id: media_player.denon_home_dressing
+                  data:
+                    group_members:
+                      - media_player.denon_avr_x2700h
+                      - media_player.heos_link
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+              - type: button
+                name: Ungroup All
+                icon: mdi:speaker-off
+                tap_action:
+                  action: call-service
+                  service: media_player.unjoin
+                  target:
+                    entity_id:
+                      - media_player.denon_home_bathroom
+                      - media_player.denon_home_bedroom
+                      - media_player.denon_home_dressing
+                      - media_player.heos_link
+                      - media_player.heos_amp
+                      - media_player.denon_avr_x2700h
+    # To play Atoll MS120 (connected to HEOS Amp via Optical In 1) on a HEOS group:
+    #   1. Ungroup all
+    #   2. Group desired speakers (with Dressing as leader)
+    #   3. Select source "HEOS Amp - Optical In" on the leader (done via the button above)
+    # Note: Could insert DAC 100 between MS120 and HEOS Amp, but that would prevent
+    #       reading HEOS Link plugged into DAC 100 from PR300.
+    # See https://github.com/scoulomb/home-audio-system (wiring docs WIP)
+    # In HEOS CLI API this translates to:
+    #   heos://browse/play_input?pid=<leader_pid>&spid=-727243330&input=inputs/optical_in_1
+    # For 3, In HA HEOS integration: media_player.select_source with source="HEOS Amp - Optical In" but could not MAKE IT work
+
+  - title: Other Renderers
+    path: other-renderers
+    icon: mdi:dlna
+    # NOTE: Disabled DLNA integration entities for HEOS devices (they are managed via the HEOS integration instead)
+    cards:
+      - type: media-control
+        entity: media_player.bedroom_hifi_atoll_ms120
+      # Could add more here if needed, e.g. Chromecast devices, Moode....
+
+  - title: Bedroom Lights & Shutter
+    path: bedroom-lights
+    icon: mdi:lightbulb-group
+    cards:
+      - type: entities
+        title: Bedroom Lights
+        entities:
+          - entity: light.bedroom_1
+            name: '1'
+          - entity: light.bedroom_2
+            name: '2'
+          - entity: light.bedroom_3
+            name: '3'
+          - light.bedroom
+          - entity: light.bedroom_bedside_left
+            name: Bedside left
+          - entity: light.bedroom_bedside_right
+            name: Bedside right
+          - entity: light.bedroom_bloom
+            name: Bloom
+          - entity: light.bedroom_lightstrip
+            name: Lightstrip
+      - type: entities
+        title: Shutter
+        entities:
+          - cover.sunilus_io
+          - button.sunilus_io_my_position
+      - type: button
+        name: Dim All Bedroom Lights
+        icon: mdi:brightness-4
+        tap_action:
+          action: call-service
+          service: light.turn_on
+          target:
+            entity_id: light.bedroom
+          data:
+            brightness_pct: 10
+
+  - title: App Shortcuts
+    path: app-shortcuts
+    icon: mdi:link-variant
+    cards:
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading_style: title
+            heading: Music Services
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://play.qobuz.com
+                icon: mdi:music-box
+                name: Qobuz
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://music.apple.com
+                icon: mdi:apple
+                name: Apple Music
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://open.spotify.com
+                icon: mdi:spotify
+                name: Spotify
+
+      - type: vertical-stack
+        cards:
+          - type: heading
+            heading_style: title
+            heading: Device Apps
+          - type: grid
+            columns: 3
+            square: false
+            cards:
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: https://apps.apple.com/fr/app/heos/id843129434
+                icon: mdi:speaker-wireless
+                name: HEOS
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: http://192.168.8.140/webclient
+                icon: mdi:web
+                name: Atoll MS120
+              - show_name: true
+                show_icon: true
+                type: button
+                tap_action:
+                  action: url
+                  url_path: http://homeassistant.local:8123
+                icon: mdi:home-assistant
+                name: Home Assistant
+
+
+# NOTE: CD / Tuner / Tape / AUX / USB are the physical labels on the Atoll remote.
+# Their actual mappings depend on the connected device:
+#   - HD120 (living room): CD → Line 1 (CD 6007), Tuner → Line 2, Tape → Optical (Heos Link streamer), AUX → Coaxial (MS120 streamer), USB → USB
+#   - PR300 (bedroom): CD → MS120 streamer, Tuner → Heos Link streamer, Tape → Tape, AUX → AUX 
+# No BT direct on global remote
+# I kept BT for bedroom preamp (UFO-R11) for consistency with living-room remote (ZS06), even though it's not used in practice.
