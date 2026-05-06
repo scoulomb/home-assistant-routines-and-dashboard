@@ -14,7 +14,7 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
 - **Global scenes in dashboard**:
   - "Leave Home", "Go to Bed"
   - "Start Qobuz Music" (leverage completed pyscript)
-  = (see [1-configuration/README.md](./1-configuration/README.md))
+  - (see [1-configuration/README.md](./1-configuration/README.md))
 - **Physical button trigger**: Hardware button to invoke scripts/automations
 - **AC / climate control** integration (via Tahoma or Onecta)
 
