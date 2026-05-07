@@ -1,0 +1,84 @@
+# Script: Play Random Music
+# Paste into scripts.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Scripts)
+#
+# A scene captures entity *states* — it cannot call services.
+# A script is the HA equivalent for triggering actions (like calling pyscript).
+# It can be triggered from dashboard, automation, physical button, or voice — just like a scene.
+#
+# Note: turning on plugs could be done via a scene (it's just entity state),
+# but keeping everything in one script avoids splitting logic across two places.
+#
+# 2-second delays between IR commands prevent overlap — the IR blaster
+# or receiver may miss signals sent back-to-back.
+
+play_random_music:
+  alias: Play Random Music
+  icon: mdi:music-box
+  description: "Group all HEOS speakers and play random Qobuz favorites"
+  sequence:
+    - action: light.turn_on
+      target:
+        entity_id:
+          - light.hue_smart_plug_hi_fi_bedroom
+          - light.hue_smart_plug_hi_fi_living
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_preamp_turn_on_off_ufo_r11
+    - delay:
+        seconds: 2
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_dac_power_ufo_r11
+    - delay:
+        seconds: 2
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_preamp_source_tuner_ufo_r11
+    - delay:
+        seconds: 2
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_preamp_turn_on_off_zs06
+    - delay:
+        seconds: 2
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_preamp_source_tape_zs06
+    - action: media_player.unjoin
+      target:
+        entity_id:
+          - media_player.denon_home_bathroom
+          - media_player.denon_home_bedroom
+          - media_player.denon_home_dressing
+          - media_player.heos_link
+          - media_player.heos_amp
+          - media_player.denon_avr_x2700h
+    - action: media_player.join
+      target:
+        entity_id: media_player.heos_link
+      data:
+        group_members: # better to do here than in pyscript
+          - media_player.denon_home_dressing
+          - media_player.denon_home_bathroom
+          - media_player.denon_home_bedroom
+    - action: pyscript.play_qobuz_favorites
+      data:
+        host: "192.168.8.190"
+        player_name: "link"
+        count: 20
+  mode: single
+
+# Lighter variant: assumes HiFi is already on and speakers are grouped.
+# Just clears the queue and plays new random tracks.
+launch_new_jukebox:
+  alias: Launch New Jukebox
+  icon: mdi:music-box-multiple
+  description: "Play new random Qobuz favorites (assumes system already on)"
+  sequence:
+    - action: pyscript.play_qobuz_favorites
+      data:
+        host: "192.168.8.190"
+        player_name: "link"
+        count: 20
+  mode: single

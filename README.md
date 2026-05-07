@@ -15,8 +15,8 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
   - ~~"Go to Bed"~~ — done: [scene](./1-configuration/scene/readme-go-to-bed.md), [automation](./1-configuration/automation/go-to-bed-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
   - ~~"Wake-up"~~ — done: [scene](./1-configuration/scene/wake-up-scene.yaml), [automation](./1-configuration/automation/wake-up-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
 - Other options:
-  - "Play random music"  (leverage completed pyscript)
-  - "Stop all music"
+  - ~~"Play random music"~~ — done: [script](./1-configuration/script/play-random-music-script.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml) (uses [pyscript](./1-configuration/pyscript/heos-music-jukebox-button/play_qobuz_favorites_pyscript.py))
+  - "Stop all music" (review physical button assignments)
   - "Cut music plug"
   - "Leave Home"
 

@@ -36,6 +36,28 @@ views:
                   target:
                     entity_id: scene.wake_up_ha
               - type: button
+                entity: script.play_random_music
+                name: Play Music
+                icon: mdi:music-box
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.play_random_music
+              - type: button
+                entity: script.launch_new_jukebox
+                name: New Jukebox
+                icon: mdi:music-box-multiple
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.launch_new_jukebox
+              - type: button
                 entity: scene.leave_home
                 name: Leave Home
                 icon: mdi:door-open
