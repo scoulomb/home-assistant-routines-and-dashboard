@@ -1,0 +1,14 @@
+# Scene: Wake Up
+# Paste into scenes.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Scenes)
+
+- id: wake_up_ha
+  name: Wake Up HA
+  icon: mdi:weather-sunny
+  entities:
+    # --- Open living room shutter ---
+    cover.salon_module_shutter:
+      state: "open"
+    # --- Close bedroom sunilus ---
+    cover.sunilus_io:
+      state: "closed"

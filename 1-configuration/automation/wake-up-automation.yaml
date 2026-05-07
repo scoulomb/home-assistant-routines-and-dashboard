@@ -1,25 +1,25 @@
-# Automation: Physical button triggers Go to Bed scene
+# Automation: Physical button triggers Wake Up scene
 # Paste into automations.yaml on HA instance
 # Reload: http://homeassistant.local:8123/developer-tools/yaml (Automations)
 # Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
 # and doing an automation http://homeassistant.local:8123/config/automation/edit/new
 
-- id: go_to_bed_button
-  alias: Go to Bed Button
+- id: wake_up_button
+  alias: Wake Up Button
   description: ""
   mode: single
   triggers:
     - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
       domain: hue
       type: long_press
-      subtype: 4
-      # unique_id: a16135b9-82bf-412b-b556-6747a551c17c, optional but can help avoid issues if you change the button later
+      subtype: 3
+      # unique_id: REPLACE_WITH_BUTTON_3_UNIQUE_ID, optional but can help avoid issues if you change the button later
       trigger: device
   conditions: []
   action:
     - action: scene.turn_on
       target:
-        entity_id: scene.go_to_bed_ha
+        entity_id: scene.wake_up_ha
 
 # --- Alternative B: Zigbee button via Zigbee2MQTT (e.g. IKEA, Aqara) ---
 #   trigger:

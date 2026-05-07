@@ -13,7 +13,7 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
 - **HiFi Dashboard**: Adjust PR300 volume step (long press causes large jumps)
 - **Go to bed scenes**:
   - ~~"Go to Bed"~~ — done: [scene](./1-configuration/scene/readme-go-to-bed.md), [automation](./1-configuration/automation/go-to-bed-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
-  - "Wake-up"
+  - ~~"Wake-up"~~ — done: [scene](./1-configuration/scene/wake-up-scene.yaml), [automation](./1-configuration/automation/wake-up-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
 - Other options:
   - "Play random music"  (leverage completed pyscript)
   - "Stop all music"

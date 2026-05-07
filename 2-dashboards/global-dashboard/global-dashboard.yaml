@@ -25,6 +25,17 @@ views:
                   target:
                     entity_id: scene.go_to_bed_ha
               - type: button
+                entity: scene.wake_up_ha
+                name: Wake Up
+                icon: mdi:weather-sunny
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: scene.turn_on
+                  target:
+                    entity_id: scene.wake_up_ha
+              - type: button
                 entity: scene.leave_home
                 name: Leave Home
                 icon: mdi:door-open
