@@ -36,10 +36,17 @@ shell_command:
 The automation dashboard at http://homeassistant.local:8123/config/automation/dashboard exposes:
 
 - **Automations** — trigger-based logic (from `automations.yaml`)
-- **Scenes** — predefined entity states (from `scenes.yaml`, or imported from integrations like Tahoma and Hue)
+- **Scenes** — predefined entity states (from `scenes.yaml`, or imported from integrations like Tahoma <!-- legacy go to bed --> and Hue)
 - **Scripts** — reusable action sequences (from `scripts.yaml`)
 - **Blueprints** — reusable automation/script templates that can be shared ([Blueprint Exchange](https://community.home-assistant.io/c/blueprints-exchange/53))
+
+## Scenes
+
+See [scene/readme-go-to-bed.md](./scene/readme-go-to-bed.md) — explains the "Go to Bed" scene: turns off all lights except dimmed bedroom, closes shutter, opens sunilus. Triggered from dashboard and physical button.
+
+A scene defines the desired state once and can be called from multiple triggers (dashboard, button, voice, automation) without duplicating logic.
 
 ## Actions Made Directly in Dashboard
 
 Some actions bypass scripts/automations entirely and are defined inline in the dashboard YAML (e.g., HEOS group/ungroup buttons in the [HiFi Dashboard](../2-dashboards/hifi-dashboard/hifi-dashboard.yaml)).
+

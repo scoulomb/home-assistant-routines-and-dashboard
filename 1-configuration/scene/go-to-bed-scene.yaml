@@ -1,0 +1,33 @@
+# Scene: Go to Bed
+# Paste into scenes.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Scenes)
+
+- id: go_to_bed_ha
+  name: Go to Bed HA
+  icon: mdi:bed
+  entities:
+    # --- Turn OFF all lights except bedroom ---
+    light.living_room:
+      state: "off"
+    light.bathroom:
+      state: "off"
+    light.entrance:
+      state: "off"
+    light.library:
+      state: "off"
+    light.dressing:
+      state: "off"
+    light.balcony:
+      state: "off"
+    light.closet:
+      state: "off"
+    # --- Dim bedroom ---
+    light.bedroom:
+      state: "on"
+      brightness: 25  # ~10% (0-255 scale)
+    # --- Close living room shutter ---
+    cover.salon_module_shutter:
+      state: "closed"
+    # --- Open bedroom sunilus ---
+    cover.sunilus_io:
+      state: "open"

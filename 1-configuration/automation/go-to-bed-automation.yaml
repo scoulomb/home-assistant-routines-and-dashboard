@@ -1,0 +1,36 @@
+# Automation: Physical button triggers Go to Bed scene
+# Paste into automations.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Automations)
+# Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
+# and doing an automation http://homeassistant.local:8123/config/automation/edit/new
+
+- id: go_to_bed_button
+  alias: Go to Bed Button
+  description: ""
+  mode: single
+  triggers:
+    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+      domain: hue
+      type: long_press
+      subtype: 4
+      unique_id: a16135b9-82bf-412b-b556-6747a551c17c
+      trigger: device
+  conditions: []
+  action:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.go_to_bed_ha
+
+# --- Alternative B: Zigbee button via Zigbee2MQTT (e.g. IKEA, Aqara) ---
+#   trigger:
+#     - platform: mqtt
+#       topic: zigbee2mqtt/YOUR_BUTTON_NAME/action
+#       payload: single   # or "double", "long" depending on your button
+
+# --- Alternative C: Any generic Zigbee button via device trigger ---
+#   trigger:
+#     - platform: device
+#       device_id: YOUR_DEVICE_ID
+#       domain: zha          # or mqtt
+#       type: remote_button_short_press
+#       subtype: button_1

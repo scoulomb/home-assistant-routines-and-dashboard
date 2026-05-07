@@ -156,4 +156,4 @@ See [2-dashboards/hifi-dashboard/](../../2-dashboards/hifi-dashboard/README.md) 
 ## TODO
 
 - PR300 volume step improvements (long press causes large jumps)
-- one file scripts/folder has only IR for now (keep as is)
+- We paste the content of this file's scripts into `scripts.yaml` on the HA instance. If multiple script files exist, they could be merged via `!include_dir_merge_named`, but a single flat `scripts.yaml` is simpler and recommended.

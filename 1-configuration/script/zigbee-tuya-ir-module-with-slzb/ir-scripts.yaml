@@ -1,3 +1,8 @@
+# Script: Zigbee Tuya IR Module with SLZB
+# Paste into scripts.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Scripts)
+
+# Workflow:
 # Learn: http://homeassistant.local:8123/45df7312_zigbee2mqtt/ingress
 # Copy-paste script: http://homeassistant.local:8123/a0d7b954_vscode/ingress
 # Reload config: http://homeassistant.local:8123/developer-tools/yaml

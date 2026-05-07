@@ -11,12 +11,16 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
 ## TODO
 
 - **HiFi Dashboard**: Adjust PR300 volume step (long press causes large jumps)
-- **Global scenes in dashboard**:
-  - "Leave Home", "Go to Bed"
-  - "Start Qobuz Music" (leverage completed pyscript)
-  - (see [1-configuration/README.md](./1-configuration/README.md))
-- **Physical button trigger**: Hardware button to invoke scripts/automations
-- **AC / climate control** integration (via Tahoma or Onecta)
+- **Go to bed scenes**:
+  - ~~"Go to Bed"~~ — done: [scene](./1-configuration/scene/readme-go-to-bed.md), [automation](./1-configuration/automation/go-to-bed-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
+  - "Wake-up"
+- Other options:
+  - "Play random music"  (leverage completed pyscript)
+  - "Stop all music"
+  - "Cut music plug"
+  - "Leave Home"
+
+- **AC / climate control** integration (via Tahoma or Onecta)  (see [1-configuration/README.md](./1-configuration/README.md#ha-ui))
 
 
 
