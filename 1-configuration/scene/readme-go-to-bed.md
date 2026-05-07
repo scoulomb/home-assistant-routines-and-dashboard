@@ -29,3 +29,7 @@ It can be triggered from anywhere — dashboard, button, voice assistant, or oth
 ## Brightness note
 
 `brightness: 25` is ~10% on the 0–255 scale. Adjust to taste (e.g. `64` for ~25%, `13` for ~5%).
+
+## Wake Up scene
+
+The [wake-up-scene.yaml](./wake-up-scene.yaml) works the same way (scene + [automation](../automation/wake-up-automation.yaml) + dashboard button) but does the opposite: opens living room shutter and closes bedroom sunilus. Lights are not touched.
