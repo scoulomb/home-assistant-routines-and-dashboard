@@ -16,9 +16,12 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
   - ~~"Wake-up"~~ — done: [scene](./1-configuration/scene/wake-up-scene.yaml), [automation](./1-configuration/automation/wake-up-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
 - Other options:
   - ~~"Play random music"~~ — done: [script](./1-configuration/script/play-random-music-script.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml) (uses [pyscript](./1-configuration/pyscript/heos-music-jukebox-button/play_qobuz_favorites_pyscript.py))
-  - "Stop all music" (review physical button assignments)
-  - "Cut music plug"
-  - "Leave Home"
+  - ~~"Stop all music"~~ — done: [script](./1-configuration/script/stop-music/stop-music-script.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
+  - ~~"Cut music plug"~~ — done: [script](./1-configuration/script/stop-music/stop-music-script.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
+  - ~~"Leave Home"~~ — done: [scene](./1-configuration/scene/readme-leave-home.md), [automation](./1-configuration/automation/leave-home-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
+  - "Cinema On" / "Cinema Off"
+- **Physical buttons**: rework button assignments (subtypes) for new routines
+- ~~**Sync**~~: done — [sync-to-ha.sh](./sync-to-ha.sh) copies repo to HA (see [sync-to-ha-README.md](./sync-to-ha-README.md))
 
 - **AC / climate control** integration (via Tahoma or Onecta)  (see [1-configuration/README.md](./1-configuration/README.md#ha-ui))
 

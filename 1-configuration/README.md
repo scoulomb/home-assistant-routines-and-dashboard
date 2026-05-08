@@ -7,28 +7,53 @@ Each folder here maps to an element in Home Assistant's `configuration.yaml`:
 
 Access via vs code plugin: http://homeassistant.local:8123/a0d7b954_vscode
 
+### Folder-based includes (instead of single files)
+
+Instead of using a single `automations.yaml`, `scripts.yaml`, or `scenes.yaml`, we use **folder-based includes**. This lets us drop individual YAML files into directories without manual merging:
+
 ```yaml
-pyscript:
-  allow_all_imports: true
-  hass_is_global: true
-  legacy_decorators: true
+# automation: !include automations.yaml          # old: single file
+automation: !include_dir_merge_list automations/  # new: all YAML files in automations/ are merged as a list
 
-automation: !include automations.yaml
-script: !include scripts.yaml
-scene: !include scenes.yaml
+# script: !include scripts.yaml
+script: !include_dir_merge_named scripts/         # merged as a named mapping (key: value)
 
-shell_command:
-  hello: "echo hello"
-  play_qobuz_dressing: "/bin/sh -c 'python3 /config/scripts/play_qobuz_favorites.py 192.168.8.190 dressing 42 &'"
+# scene: !include scenes.yaml
+scene: !include_dir_merge_list scenes/            # merged as a list
 ```
 
-| Folder | `configuration.yaml` element | Description |
-|--------|------------------------------|-------------|
-| [automation/](./automation/) | `automation: !include automations.yaml` | Triggered automations |
+### Dashboards in YAML mode
+
+Dashboards are configured directly in `configuration.yaml` using `lovelace: mode: yaml`, so they can also be version-controlled and synced:
+
+```yaml
+lovelace:
+  mode: yaml
+  dashboards:
+    lovelace-global:
+      mode: yaml
+      filename: global-dashboard/global-dashboard.yaml
+      title: Dream Home
+    lovelace-hifi:
+      mode: yaml
+      filename: hifi-dashboard/hifi-dashboard.yaml
+      title: SLZB Remote
+```
+
+Note: `mode: yaml` disables the visual dashboard editor in the HA UI — all edits must be done in the YAML files.
+
+### Syncing to HA
+
+The repo can be cloned on the HA instance and synced using the [sync-to-ha.sh](../sync-to-ha.sh) script. See [sync-to-ha-README.md](../sync-to-ha-README.md) for full instructions.
+
+### Folder mapping
+
+| Folder | `configuration.yaml` directive | Description |
+|--------|-------------------------------|-------------|
+| [automations/](./automations/) | `automation: !include_dir_merge_list automations/` | Triggered automations |
+| [scenes/](./scenes/) | `scene: !include_dir_merge_list scenes/` | Predefined entity states |
+| [scripts/](./scripts/) | `script: !include_dir_merge_named scripts/` | Reusable action sequences |
 | [pyscript/](./pyscript/) | `pyscript:` | Python scripts with full HA access |
-| [scene/](./scene/) | `scene: !include scenes.yaml` | Predefined entity states |
-| [script/](./script/) | `script: !include scripts.yaml` | Reusable action sequences |
-| [shell-command/](./shell-command/) | `shell_command:` | OS-level shell commands |
 
 
 ## HA UI

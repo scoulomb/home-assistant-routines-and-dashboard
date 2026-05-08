@@ -48,8 +48,8 @@ Both scenes and scripts produce an entity that can be triggered from the dashboa
 
 1. Ensure [play_qobuz_favorites_pyscript.py](../pyscript/heos-music-jukebox-button/play_qobuz_favorites_pyscript.py) is deployed to `/config/pyscript/` and pyscript is configured with `allow_all_imports: true`
 2. Ensure Atoll IR scripts are already configured in `scripts.yaml` (defined in [ir-scripts.yaml](../script/zigbee-tuya-ir-module-with-slzb/ir-scripts.yaml), also used in [HiFi dashboard](../../2-dashboards/hifi-dashboard/hifi-dashboard.yaml))
-3. Copy [play-random-music-script.yaml](./play-random-music-script.yaml) content into `scripts.yaml` on the HA instance (via [VS Code add-on](http://homeassistant.local:8123/a0d7b954_vscode/ingress))
-4. Copy [play-random-music-automation.yaml](../automation/play-random-music/play-random-music-automation.yaml) content into `automations.yaml`, replacing the `device_id` and `subtype` with your button's values (discover via [Logbook](http://homeassistant.local:8123/logbook))
+3. Deploy [play-random-music-script.yaml](./play-random-music-script.yaml): copy content into `scripts.yaml`, or drop the file into `/config/scripts/` if using `!include_dir_merge_named` (see [configuration.yaml](../../configuration.yaml))
+4. Deploy [play-random-music-automation.yaml](../automation/play-random-music/play-random-music-automation.yaml): copy content into `automations.yaml`, or drop the file into `/config/automations/` if using `!include_dir_merge_list` — replace the `device_id` and `subtype` with your button's values (discover via [Logbook](http://homeassistant.local:8123/logbook))
 5. Add the dashboard button from [global-dashboard.yaml](../../2-dashboards/global-dashboard/global-dashboard.yaml) (Quick Actions section)
 6. Reload from [Developer Tools → YAML](http://homeassistant.local:8123/developer-tools/yaml) (Scripts + Automations + Pyscript)
 

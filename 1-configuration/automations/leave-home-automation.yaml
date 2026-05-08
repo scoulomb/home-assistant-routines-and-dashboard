@@ -1,0 +1,21 @@
+# Automation: Physical button triggers Leave Home scene
+# Paste into automations.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Automations)
+# Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
+# and doing an automation http://homeassistant.local:8123/config/automation/edit/new
+
+- id: leave_home_button
+  alias: Leave Home Button
+  description: ""
+  mode: single
+  triggers:
+    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+      domain: hue
+      type: long_press
+      subtype: 1
+      trigger: device
+  conditions: []
+  action:
+    - action: scene.turn_on
+      target:
+        entity_id: scene.leave_home_ha

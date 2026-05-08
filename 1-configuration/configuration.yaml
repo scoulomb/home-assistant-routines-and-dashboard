@@ -1,0 +1,67 @@
+# Loads default set of integrations. Do not remove.
+default_config:
+
+# Load frontend themes from the themes folder
+frontend:
+  themes: !include_dir_merge_named themes
+
+# automation: !include automations.yaml
+automation: !include_dir_merge_list automations/
+
+# script: !include scripts.yaml
+script: !include_dir_merge_named scripts/
+
+# scene: !include scenes.yaml
+scene: !include_dir_merge_list scenes/
+
+## Custom - sensors
+sensor: !include sensors.yaml
+
+## Custom - infuxDB
+influxdb:
+  host: a0d7b954-influxdb
+  port: 8086
+  database: homeassistantDB
+  username: !secret influxdb_user
+  password: !secret influxdb_password
+  ssl: false
+  verify_ssl: false
+  max_retries: 3
+  default_measurement: state
+
+http:
+  use_x_forwarded_for: true
+  trusted_proxies:
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+  ip_ban_enabled: true
+
+
+# shell_command:
+#  hello: "echo hello"
+#  play_qobuz_dressing: "/bin/sh -c 'python3 /config/scripts/play_qobuz_favorites.py 192.168.8.190 dressing 42 &'"
+
+pyscript:
+  allow_all_imports: true
+  hass_is_global: true
+  legacy_decorators: true
+
+lovelace:
+  mode: yaml
+  resources: []
+  # Default/Overview dashboard loaded from /config/ui-lovelace.yaml
+  # Additional dashboards below appear in the sidebar
+  dashboards:
+    lovelace-global:
+      mode: yaml
+      filename: global-dashboard/global-dashboard.yaml
+      title: Dream Home
+      icon: mdi:home
+      show_in_sidebar: true
+    lovelace-hifi:
+      mode: yaml
+      filename: hifi-dashboard/hifi-dashboard.yaml
+      title: SLZB Remote
+      icon: mdi:remote
+      show_in_sidebar: true

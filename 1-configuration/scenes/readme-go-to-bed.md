@@ -22,8 +22,8 @@ It can be triggered from anywhere — dashboard, button, voice assistant, or oth
 
 ## Deploy
 
-1. Copy [go-to-bed-scene.yaml](./go-to-bed-scene.yaml) content into `scenes.yaml` on the HA instance (via [VS Code add-on](http://homeassistant.local:8123/a0d7b954_vscode/ingress))
-2. Copy [go-to-bed-automation.yaml](../automation/go-to-bed-automation.yaml) content into `automations.yaml`, replacing `YOUR_HUE_DIMMER_DEVICE_ID` with your button's device ID (Settings → Devices)
+1. Deploy [go-to-bed-scene.yaml](./go-to-bed-scene.yaml): copy content into `scenes.yaml`, or drop the file into `/config/scenes/` if using `!include_dir_merge_list` (see [configuration.yaml](../configuration.yaml))
+2. Deploy [go-to-bed-automation.yaml](../automation/go-to-bed-automation.yaml): copy content into `automations.yaml`, or drop the file into `/config/automations/` if using `!include_dir_merge_list` — replace `YOUR_HUE_DIMMER_DEVICE_ID` with your button's device ID (Settings → Devices)
 3. Reload from [Developer Tools → YAML](http://homeassistant.local:8123/developer-tools/yaml) (Scenes + Automations)
 
 ## Brightness note

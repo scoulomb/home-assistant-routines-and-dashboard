@@ -1,0 +1,37 @@
+# Automation: Physical button triggers Stop Music script
+# Paste into automations.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Automations)
+# Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
+# and doing an automation http://homeassistant.local:8123/config/automation/edit/new
+
+- id: stop_music_button
+  alias: Stop Music Button
+  description: ""
+  mode: single
+  triggers:
+    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+      domain: hue
+      type: long_press
+      subtype: 3
+      trigger: device
+  conditions: []
+  action:
+    - action: script.turn_on
+      target:
+        entity_id: script.stop_music
+
+- id: cut_music_plug_button
+  alias: Cut Music Plug Button
+  description: ""
+  mode: single
+  triggers:
+    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+      domain: hue
+      type: long_press
+      subtype: 4
+      trigger: device
+  conditions: []
+  action:
+    - action: script.turn_on
+      target:
+        entity_id: script.cut_music_plug

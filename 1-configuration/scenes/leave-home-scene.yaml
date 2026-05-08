@@ -1,0 +1,29 @@
+# Scene: Leave Home
+# Paste into scenes.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Scenes)
+
+- id: leave_home_ha
+  name: Leave Home HA
+  icon: mdi:door-open
+  entities:
+    # --- Turn OFF all lights ---
+    light.living_room:
+      state: "off"
+    light.bedroom:
+      state: "off"
+    light.bathroom:
+      state: "off"
+    light.entrance:
+      state: "off"
+    light.library:
+      state: "off"
+    light.dressing:
+      state: "off"
+    light.balcony:
+      state: "off"
+    light.closet:
+      state: "off"
+    # --- Deploy sunilus at 50% ---
+    cover.sunilus_io:
+      state: "open"
+      current_position: 50

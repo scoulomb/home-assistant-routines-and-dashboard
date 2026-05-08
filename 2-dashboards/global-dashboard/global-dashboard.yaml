@@ -35,6 +35,8 @@ views:
                   service: scene.turn_on
                   target:
                     entity_id: scene.wake_up_ha
+          - type: horizontal-stack
+            cards:
               - type: button
                 entity: script.play_random_music
                 name: Play Music
@@ -58,7 +60,29 @@ views:
                   target:
                     entity_id: script.launch_new_jukebox
               - type: button
-                entity: scene.leave_home
+                entity: script.stop_music
+                name: Stop Music
+                icon: mdi:stop-circle
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.stop_music
+              - type: button
+                entity: script.cut_music_plug
+                name: Cut Music Plug
+                icon: mdi:power-plug-off
+                show_name: true
+                show_icon: true
+                tap_action:
+                  action: call-service
+                  service: script.turn_on
+                  target:
+                    entity_id: script.cut_music_plug
+              - type: button
+                entity: scene.leave_home_ha
                 name: Leave Home
                 icon: mdi:door-open
                 show_name: true
@@ -67,18 +91,7 @@ views:
                   action: call-service
                   service: scene.turn_on
                   target:
-                    entity_id: scene.leave_home
-              - type: button
-                entity: scene.turn_on_ac_living
-                name: AC Living
-                icon: mdi:air-conditioner
-                show_name: true
-                show_icon: true
-                tap_action:
-                  action: call-service
-                  service: scene.turn_on
-                  target:
-                    entity_id: scene.turn_on_ac_living
+                    entity_id: scene.leave_home_ha
 
       - type: vertical-stack
         cards:

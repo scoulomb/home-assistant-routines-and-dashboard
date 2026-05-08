@@ -1,0 +1,64 @@
+# Script: Stop Music
+# Paste into scripts.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Scripts)
+#
+# Reverse of play_random_music: stops playback, ungroups speakers,
+# turns off amplifiers via IR, and powers off HiFi plugs.
+#
+# 2-second delays between IR commands prevent overlap — the IR blaster
+# or receiver may miss signals sent back-to-back.
+
+stop_music:
+  alias: Stop Music
+  icon: mdi:stop-circle
+  description: "Stop all HEOS playback, ungroup speakers, and power off HiFi"
+  sequence:
+    - action: media_player.media_stop
+      target:
+        entity_id:
+          - media_player.denon_home_bathroom
+          - media_player.denon_home_bedroom
+          - media_player.denon_home_dressing
+          - media_player.heos_link
+          - media_player.heos_amp
+          - media_player.denon_avr_x2700h
+    - action: media_player.unjoin
+      target:
+        entity_id:
+          - media_player.denon_home_bathroom
+          - media_player.denon_home_bedroom
+          - media_player.denon_home_dressing
+          - media_player.heos_link
+          - media_player.heos_amp
+          - media_player.denon_avr_x2700h
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_preamp_turn_on_off_ufo_r11
+    - delay:
+        seconds: 2
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_dac_power_ufo_r11
+    - delay:
+        seconds: 2
+    - action: script.turn_on
+      target:
+        entity_id: script.atoll_preamp_turn_on_off_zs06
+  mode: single
+
+# Separate script: just cuts the HiFi plugs.
+# Kept separate from stop_music so you can verify the system is
+# properly turned off before cutting the plug.
+# Also useful when the system is already off but plugs are still on,
+# or when you want to cut power without stopping playback first.
+cut_music_plug:
+  alias: Cut Music Plug
+  icon: mdi:power-plug-off
+  description: "Turn off HiFi smart plugs (bedroom + living room)"
+  sequence:
+    - action: light.turn_off
+      target:
+        entity_id:
+          - light.hue_smart_plug_hi_fi_bedroom
+          - light.hue_smart_plug_hi_fi_living
+  mode: single
