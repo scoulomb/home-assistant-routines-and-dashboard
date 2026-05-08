@@ -42,6 +42,8 @@ lovelace:
 
 Note: `mode: yaml` disables the visual dashboard editor in the HA UI — all edits must be done in the YAML files.
 
+> **Warning**: Dashboard name/title updates or the deprecation fix (removing top-level `mode: yaml`) may require a **full HA restart** — a YAML reload is not sufficient.
+
 ### Syncing to HA
 
 The repo can be cloned on the HA instance and synced using the [sync-to-ha.sh](../sync-to-ha.sh) script. See [sync-to-ha-README.md](../sync-to-ha-README.md) for full instructions.
