@@ -56,12 +56,12 @@ lovelace:
     lovelace-global:
       mode: yaml
       filename: global-dashboard/global-dashboard.yaml
-      title: Dream Home
+      title: Global
       icon: mdi:home
       show_in_sidebar: true
     lovelace-hifi:
       mode: yaml
       filename: hifi-dashboard/hifi-dashboard.yaml
-      title: SLZB Remote
+      title: Sound System
       icon: mdi:remote
       show_in_sidebar: true
