@@ -48,10 +48,7 @@ pyscript:
   legacy_decorators: true
 
 lovelace:
-  mode: yaml
   resources: []
-  # Default/Overview dashboard loaded from /config/ui-lovelace.yaml
-  # Additional dashboards below appear in the sidebar
   dashboards:
     lovelace-global:
       mode: yaml
