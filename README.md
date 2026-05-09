@@ -26,7 +26,9 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
 
 - **AC / climate control** integration (via Tahoma or Onecta)  (see [1-configuration/README.md](./1-configuration/README.md#ha-ui))
 
+- Improve dashboards 
 
+- All comments in [configuration.yaml](./1-configuration/configuration.yaml) are reviewed and up to date (includes pyscript)
 
 <!--
 Legacy conclusion:
