@@ -2,7 +2,8 @@
 # Paste into automations.yaml on HA instance
 # Reload: http://homeassistant.local:8123/developer-tools/yaml (Automations)
 # Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
-# and doing an automation http://homeassistant.local:8123/config/automation/edit/new
+# and creating an automation at http://homeassistant.local:8123/config/automation/edit/new (gives device_id and syntax)
+# Device page: http://homeassistant.local:8123/config/devices/device/4390745362032b639a615b61b86d9eaa
 #
 # Uses same Hue button as play/stop music but different subtypes.
 # Adjust device_id and subtype to match your physical button.

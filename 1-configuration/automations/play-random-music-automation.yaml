@@ -2,7 +2,8 @@
 # Paste into automations.yaml on HA instance
 # Reload: http://homeassistant.local:8123/developer-tools/yaml (Automations)
 # Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
-# and doing an automation http://homeassistant.local:8123/config/automation/edit/new
+# and creating an automation at http://homeassistant.local:8123/config/automation/edit/new (gives device_id and syntax)
+# Device page: http://homeassistant.local:8123/config/devices/device/4390745362032b639a615b61b86d9eaa
 
 
 
@@ -12,10 +13,11 @@
   mode: single
   # Dimmer switch global (device_id: 4390745362032b639a615b61b86d9eaa)
   triggers:
-    - entity_id: event.hue_dimmer_switch_global_button_1
-      trigger: state
-      attribute: event_type
-      to: initial_press
+    - device_id: 4390745362032b639a615b61b86d9eaa
+      domain: hue
+      type: initial_press
+      subtype: 1
+      trigger: device
   conditions: []
   action:
     - action: script.turn_on
