@@ -389,7 +389,7 @@ views:
                 entity_id: script.atoll_dac_sel_plus_ufo_r11
 
       - type: grid
-        title: AVR + Optoma
+        title: AVR (HEOS) + Optoma
         columns: 4
         square: false
         cards:
@@ -400,7 +400,16 @@ views:
               action: call-service
               service: script.turn_on
               target:
-                entity_id: script.avr_on_off
+                entity_id: script.heos_avr_on_off
+          # IR alternative (requires UFO-R11):
+          # - type: button
+          #   name: AVR Power (IR)
+          #   icon: mdi:power
+          #   tap_action:
+          #     action: call-service
+          #     service: script.turn_on
+          #     target:
+          #       entity_id: script.avr_on_off
           - type: button
             name: AVR Vol -
             icon: mdi:volume-minus
@@ -408,7 +417,7 @@ views:
               action: call-service
               service: script.turn_on
               target:
-                entity_id: script.avr_vol_less
+                entity_id: script.heos_avr_vol_less
           - type: button
             name: AVR Vol +
             icon: mdi:volume-plus
@@ -416,7 +425,7 @@ views:
               action: call-service
               service: script.turn_on
               target:
-                entity_id: script.avr_vol_plus
+                entity_id: script.heos_avr_vol_plus
           - type: button
             name: AVR Mute
             icon: mdi:volume-mute
@@ -424,7 +433,7 @@ views:
               action: call-service
               service: script.turn_on
               target:
-                entity_id: script.avr_mute
+                entity_id: script.heos_avr_mute
           - type: button
             name: AVR 8K
             icon: mdi:video-4k-box
@@ -432,7 +441,7 @@ views:
               action: call-service
               service: script.turn_on
               target:
-                entity_id: script.avr_8k
+                entity_id: script.heos_avr_8k
           - type: button
             name: Optoma On
             icon: mdi:projector
