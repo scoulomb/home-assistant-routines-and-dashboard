@@ -84,7 +84,9 @@ Both scenes and scripts can be triggered(triggers) from [automations](./automati
 
 For example, the [HiFi Dashboard](../2-dashboards/hifi-dashboard/hifi-dashboard.yaml) calls AVR scripts (`script.heos_avr_on_off`, `script.heos_avr_vol_plus`, …) via button tap actions.
 
- A script can also call other scripts to compose reusable sequences. For example, the [Global Dashboard](../2-dashboards/global-dashboard/global-dashboard.yaml) Cinema button calls [`script.cinema_on`](./scripts/cinema/cinema-script.yaml), which in turn calls [`script.heos_avr_on_off`](./scripts/heos-avr/heos-avr-scripts.yaml) and [`script.heos_avr_8k`](./scripts/heos-avr/heos-avr-scripts.yaml).
+ A script can also call other scripts to compose reusable sequences. For example, the [Global Dashboard](../2-dashboards/global-dashboard/global-dashboard.yaml) Cinema button calls [`script.cinema_on`](./scripts/cinema/cinema-script.yaml), which in turn calls [`script.heos_avr_on_off`](./scripts/heos-avr/heos-avr-scripts.yaml) and [`script.heos_avr_8k`](./scripts/heos-avr/heos-avr-scripts.yaml). 
+ 
+ A script can also call a pyscript — for example, the [Global Dashboard](../2-dashboards/global-dashboard/global-dashboard.yaml) Play Music button calls [`script.play_random_music`](./scripts/play-random-music/play-random-music-script.yaml), which in turn calls [`pyscript.play_qobuz_favorites`](./pyscript/heos-music-jukebox-button/play_qobuz_favorites_pyscript.py) to play random Qobuz favorites via the HEOS API.
 
 ## Actions Made Directly in Dashboard
 
