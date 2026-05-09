@@ -88,6 +88,8 @@ For example, the [HiFi Dashboard](../2-dashboards/hifi-dashboard/hifi-dashboard.
  
  A script can also call a pyscript — for example, the [Global Dashboard](../2-dashboards/global-dashboard/global-dashboard.yaml) Play Music button calls [`script.play_random_music`](./scripts/play-random-music/play-random-music-script.yaml), which in turn calls [`pyscript.play_qobuz_favorites`](./pyscript/heos-music-jukebox-button/play_qobuz_favorites_pyscript.py) to play random Qobuz favorites via the HEOS API.
 
+ <!-- clear stop there -->
+
 ## Actions Made Directly in Dashboard
 
 Some actions bypass scripts/scenes entirely and are defined inline in the dashboard YAML (e.g., HEOS group/ungroup buttons in the [HiFi Dashboard](../2-dashboards/hifi-dashboard/hifi-dashboard.yaml)). The tradeoff is that inline actions cannot be reused by automations or other triggers.
