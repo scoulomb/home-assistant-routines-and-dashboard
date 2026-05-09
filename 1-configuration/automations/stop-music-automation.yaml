@@ -4,15 +4,16 @@
 # Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
 # and doing an automation http://homeassistant.local:8123/config/automation/edit/new
 
+
 - id: stop_music_button
   alias: Stop Music Button
   description: ""
   mode: single
   triggers:
-    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
       domain: hue
-      type: long_press
-      subtype: 3
+      type: short_press
+      subtype: 2
       trigger: device
   conditions: []
   action:
@@ -20,15 +21,16 @@
       target:
         entity_id: script.stop_music
 
+
 - id: cut_music_plug_button
   alias: Cut Music Plug Button
   description: ""
   mode: single
   triggers:
-    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
       domain: hue
-      type: long_press
-      subtype: 4
+      type: short_press
+      subtype: 3
       trigger: device
   conditions: []
   action:

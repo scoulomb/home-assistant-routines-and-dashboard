@@ -9,13 +9,14 @@
   description: ""
   mode: single
   triggers:
-    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
       domain: hue
-      type: long_press
-      subtype: 1
+      type: short_press
+      subtype: 4
       trigger: device
   conditions: []
   action:
     - action: scene.turn_on
       target:
         entity_id: scene.leave_home_ha
+

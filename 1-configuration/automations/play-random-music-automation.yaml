@@ -4,18 +4,21 @@
 # Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
 # and doing an automation http://homeassistant.local:8123/config/automation/edit/new
 
+
+
 - id: play_random_music_button
   alias: Play Random Music Button
   description: ""
   mode: single
   triggers:
-    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
       domain: hue
-      type: long_press
-      subtype: 2
+      type: short_press
+      subtype: 1
       trigger: device
   conditions: []
   action:
     - action: script.turn_on
       target:
         entity_id: script.play_random_music
+
