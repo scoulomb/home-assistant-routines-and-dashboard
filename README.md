@@ -22,6 +22,8 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
   - ~~"Cinema On" / "Cinema Off"~~ — done: [script](./1-configuration/scripts/cinema/cinema-script.yaml), [automation](./1-configuration/automations/cinema-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
     - ~~AVR control via HEOS/Denon AVR integration~~ — done: [script](./1-configuration/scripts/heos-avr/heos-avr-scripts.yaml), [dashboard](./2-dashboards/hifi-dashboard/hifi-dashboard.yaml) (replaces IR control)
 - **Physical buttons**: rework button assignments (subtypes) for new routines
+  - ~~Dimmer switch entrance (global)~~ — done: [play-random-music](./1-configuration/automations/play-random-music-automation.yaml), [stop-music](./1-configuration/automations/stop-music-automation.yaml), [leave-home](./1-configuration/automations/leave-home-automation.yaml) (also added a 2-second delay after plug turn-on for PR300 power-up in [play-random-music-script.yaml](./1-configuration/scripts/play-random-music/play-random-music-script.yaml))
+  - To continue...TODO
 - ~~**Sync**~~: done — [sync-to-ha.sh](./sync-to-ha.sh) copies repo to HA (see [sync-to-ha-README.md](./sync-to-ha-README.md))
 
 - **AC / climate control** integration (via Tahoma or Onecta)  (see [1-configuration/README.md](./1-configuration/README.md#ha-ui))
