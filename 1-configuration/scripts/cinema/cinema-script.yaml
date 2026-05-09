@@ -1,0 +1,68 @@
+# Script: Cinema On / Cinema Off
+# Paste into scripts.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Scripts)
+#
+# Cinema On: powers on AVR, selects 8K (Apple TV) input, sets volume to 45%,
+# dims bedroom lights, and turns on the Optoma projector.
+#
+# Cinema Off: turns off Optoma, powers off AVR, and restores bedroom lights.
+#
+# Leverages heos-avr scripts for AVR control and IR scripts for Optoma.
+
+cinema_on:
+  alias: Cinema On
+  icon: mdi:movie-open
+  description: "Turn on AVR + Optoma, select Apple TV input, set volume, dim lights"
+  sequence:
+    # 1. Power on AVR (via Denon AVR integration)
+    - action: script.turn_on
+      target:
+        entity_id: script.heos_avr_on_off
+    - delay:
+        seconds: 3
+    # 2. Select 8K / Apple TV input (via HEOS)
+    - action: script.turn_on
+      target:
+        entity_id: script.heos_avr_8k
+    - delay:
+        seconds: 2
+    # 3. Set volume to 45%
+    - action: media_player.volume_set
+      target:
+        entity_id: media_player.denon_avr_x2700h
+      data:
+        volume_level: 0.45
+    # 4. Dim bedroom lights
+    - action: light.turn_on
+      target:
+        entity_id: light.bedroom
+      data:
+        brightness: 25  # ~10%
+    # 5. Turn on Optoma projector (via IR)
+    - action: script.turn_on
+      target:
+        entity_id: script.optoma_on
+  mode: single
+
+cinema_off:
+  alias: Cinema Off
+  icon: mdi:movie-off
+  description: "Turn off Optoma + AVR and restore bedroom lights"
+  sequence:
+    # 1. Turn off Optoma projector (via IR)
+    - action: script.turn_on
+      target:
+        entity_id: script.optoma_off
+    - delay:
+        seconds: 2
+    # 2. Power off AVR (via Denon AVR integration)
+    - action: script.turn_on
+      target:
+        entity_id: script.heos_avr_on_off
+    # 3. Restore bedroom lights
+    - action: light.turn_on
+      target:
+        entity_id: light.bedroom
+      data:
+        brightness: 125  # full brightness
+  mode: single

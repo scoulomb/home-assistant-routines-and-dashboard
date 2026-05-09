@@ -78,11 +78,13 @@ A scene defines the desired state once and can be called from multiple triggers 
 - **Scene** — declares a **snapshot of entity states** (e.g., light brightness, shutter position). HA applies all states simultaneously. Use when you want to set multiple entities to known states.
 - **Script** — defines a **sequence of actions** (service calls, delays, conditions, templates). Use when you need logic, ordering, or actions that aren't just setting entity states (e.g., sending IR codes, calling `media_player.volume_up`, toggling with a template).
 
-In short: scenes are *what state*, scripts are *what to do*. A script can also call other scripts to compose reusable sequences.
+In short: scenes are *what state*, scripts are *what to do*.
 
 Both scenes and scripts can be triggered(triggers) from [automations](./automations/) (via `action: scene.turn_on` / `action: script.turn_on`), [dashboards](../2-dashboards/) (via button `tap_action`), physical buttons, or voice assistants. 
 
 For example, the [HiFi Dashboard](../2-dashboards/hifi-dashboard/hifi-dashboard.yaml) calls AVR scripts (`script.heos_avr_on_off`, `script.heos_avr_vol_plus`, …) via button tap actions.
+
+ A script can also call other scripts to compose reusable sequences. For example, the [Global Dashboard](../2-dashboards/global-dashboard/global-dashboard.yaml) Cinema button calls [`script.cinema_on`](./scripts/cinema/cinema-script.yaml), which in turn calls [`script.heos_avr_on_off`](./scripts/heos-avr/heos-avr-scripts.yaml) and [`script.heos_avr_8k`](./scripts/heos-avr/heos-avr-scripts.yaml).
 
 ## Actions Made Directly in Dashboard
 

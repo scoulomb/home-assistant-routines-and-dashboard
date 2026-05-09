@@ -19,7 +19,7 @@ Content originally in https://github.com/scoulomb/home-assistant/blob/main/2025-
   - ~~"Stop all music"~~ — done: [script](./1-configuration/script/stop-music/stop-music-script.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
   - ~~"Cut music plug"~~ — done: [script](./1-configuration/script/stop-music/stop-music-script.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
   - ~~"Leave Home"~~ — done: [scene](./1-configuration/scene/readme-leave-home.md), [automation](./1-configuration/automation/leave-home-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
-  - "Cinema On" / "Cinema Off" ()
+  - ~~"Cinema On" / "Cinema Off"~~ — done: [script](./1-configuration/scripts/cinema/cinema-script.yaml), [automation](./1-configuration/automations/cinema-automation.yaml), [dashboard](./2-dashboards/global-dashboard/global-dashboard.yaml)
     - ~~AVR control via HEOS/Denon AVR integration~~ — done: [script](./1-configuration/scripts/heos-avr/heos-avr-scripts.yaml), [dashboard](./2-dashboards/hifi-dashboard/hifi-dashboard.yaml) (replaces IR control)
 - **Physical buttons**: rework button assignments (subtypes) for new routines
 - ~~**Sync**~~: done — [sync-to-ha.sh](./sync-to-ha.sh) copies repo to HA (see [sync-to-ha-README.md](./sync-to-ha-README.md))

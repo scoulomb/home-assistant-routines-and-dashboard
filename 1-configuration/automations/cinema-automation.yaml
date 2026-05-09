@@ -1,0 +1,40 @@
+# Automation: Physical button triggers Cinema On / Cinema Off scripts
+# Paste into automations.yaml on HA instance
+# Reload: http://homeassistant.local:8123/developer-tools/yaml (Automations)
+# Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
+# and doing an automation http://homeassistant.local:8123/config/automation/edit/new
+#
+# Uses same Hue button as play/stop music but different subtypes.
+# Adjust device_id and subtype to match your physical button.
+
+- id: cinema_on_button
+  alias: Cinema On Button
+  description: ""
+  mode: single
+  triggers:
+    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+      domain: hue
+      type: long_press
+      subtype: 1
+      trigger: device
+  conditions: []
+  action:
+    - action: script.turn_on
+      target:
+        entity_id: script.cinema_on
+
+- id: cinema_off_button
+  alias: Cinema Off Button
+  description: ""
+  mode: single
+  triggers:
+    - device_id: 0033cb20eaa852bf8fbfa9b6bbd766cc
+      domain: hue
+      type: short_press
+      subtype: 1
+      trigger: device
+  conditions: []
+  action:
+    - action: script.turn_on
+      target:
+        entity_id: script.cinema_off
