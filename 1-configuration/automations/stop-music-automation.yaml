@@ -9,12 +9,12 @@
   alias: Stop Music Button
   description: ""
   mode: single
+  # Dimmer switch global (device_id: 4390745362032b639a615b61b86d9eaa)
   triggers:
-    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
-      domain: hue
-      type: short_press
-      subtype: 2
-      trigger: device
+    - entity_id: event.hue_dimmer_switch_global_button_2
+      trigger: state
+      attribute: event_type
+      to: short_press
   conditions: []
   action:
     - action: script.turn_on
@@ -26,12 +26,12 @@
   alias: Cut Music Plug Button
   description: ""
   mode: single
+  # Dimmer switch global (device_id: 4390745362032b639a615b61b86d9eaa)
   triggers:
-    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
-      domain: hue
-      type: short_press
-      subtype: 3
-      trigger: device
+    - entity_id: event.hue_dimmer_switch_global_button_3
+      trigger: state
+      attribute: event_type
+      to: short_press
   conditions: []
   action:
     - action: script.turn_on

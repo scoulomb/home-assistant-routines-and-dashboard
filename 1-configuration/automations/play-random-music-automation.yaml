@@ -10,12 +10,12 @@
   alias: Play Random Music Button
   description: ""
   mode: single
+  # Dimmer switch global (device_id: 4390745362032b639a615b61b86d9eaa)
   triggers:
-    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
-      domain: hue
-      type: short_press
-      subtype: 1
-      trigger: device
+    - entity_id: event.hue_dimmer_switch_global_button_1
+      trigger: state
+      attribute: event_type
+      to: short_press
   conditions: []
   action:
     - action: script.turn_on

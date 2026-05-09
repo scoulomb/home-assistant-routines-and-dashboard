@@ -4,16 +4,18 @@
 # Discover device_id by pressing the button and checking http://homeassistant.local:8123/logbook
 # and doing an automation http://homeassistant.local:8123/config/automation/edit/new
 
+# We can device there: http://homeassistant.local:8123/config/devices/device/4390745362032b639a615b61b86d9eaa
+
+
 - id: leave_home_button
   alias: Leave Home Button
   description: ""
   mode: single
   triggers:
-    - device_id: 4390745362032b639a615b61b86d9eaa  # Dimmer switch entrance
-      domain: hue
-      type: short_press
-      subtype: 4
-      trigger: device
+    - entity_id: event.hue_dimmer_switch_global_button_4
+      trigger: state
+      attribute: event_type
+      to: short_press
   conditions: []
   action:
     - action: scene.turn_on
