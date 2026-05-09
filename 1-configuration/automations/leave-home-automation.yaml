@@ -15,7 +15,7 @@
     - entity_id: event.hue_dimmer_switch_global_button_4
       trigger: state
       attribute: event_type
-      to: short_press
+      to: initial_press
   conditions: []
   action:
     - action: scene.turn_on

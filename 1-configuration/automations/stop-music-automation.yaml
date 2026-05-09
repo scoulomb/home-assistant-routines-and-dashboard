@@ -14,7 +14,7 @@
     - entity_id: event.hue_dimmer_switch_global_button_2
       trigger: state
       attribute: event_type
-      to: short_press
+      to: initial_press
   conditions: []
   action:
     - action: script.turn_on
@@ -31,7 +31,7 @@
     - entity_id: event.hue_dimmer_switch_global_button_3
       trigger: state
       attribute: event_type
-      to: short_press
+      to: initial_press
   conditions: []
   action:
     - action: script.turn_on
