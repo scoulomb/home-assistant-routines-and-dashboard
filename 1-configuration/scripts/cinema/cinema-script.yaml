@@ -71,3 +71,8 @@ cinema_off:
       data:
         brightness: 125  # full brightness
   mode: single
+
+
+# Note: HiFi plugs and shutter/store are not managed here — they could be
+# controlled directly or via separate scripts if needed (like heos_avr_on_off
+# wraps media_player.toggle). See ../../README.md § "Scene vs Script" for the pattern.
