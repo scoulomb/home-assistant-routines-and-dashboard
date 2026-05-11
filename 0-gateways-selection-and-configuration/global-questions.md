@@ -40,3 +40,5 @@ The Hue Bridge 2.1 uses a newer, stricter Zigbee 3.0 implementation to improve s
 These devices can instead be paired directly via Z2M (Zigbee2MQTT), bypassing the Hue Bridge entirely.
 
 
+<!-- De mon côte (scoul) j'utilise maintenant uniquement le pont hue pour les lumières, j'ai les devices non Hue (sauf Osram) sur HomeAssistant avec une clé SMlight :) , c'est la solution la plus universel que jai trouve
+-->
