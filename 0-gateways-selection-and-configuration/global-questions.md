@@ -41,4 +41,6 @@ These devices can instead be paired directly via Z2M (Zigbee2MQTT), bypassing th
 
 
 <!-- De mon côte (scoul) j'utilise maintenant uniquement le pont hue pour les lumières, j'ai les devices non Hue (sauf Osram) sur HomeAssistant avec une clé SMlight :) , c'est la solution la plus universel que jai trouve
+
+said key because some basic model do not have ethernet/wifi and multi radio
 -->
