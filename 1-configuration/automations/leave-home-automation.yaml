@@ -14,7 +14,7 @@
   triggers:
     - device_id: 4390745362032b639a615b61b86d9eaa
       domain: hue
-      type: initial_press # here AI did not generate correct synthax which is: intial press
+      type: initial_press # here AI did not generate correct synthax which is: intial press (no need to mention elsewhere)
       subtype: 4
       trigger: device
   conditions: []
